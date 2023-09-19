@@ -24,6 +24,14 @@
     <string name="btn_sqrt_string">sqrt</string>
     <string name="btn_sqr_string">sqr</string>
 
+    <string name="btn_next_activity_string">next</string>
+
+    <string name="btn_go_back_string">Back</string>
+    <string name="btn_go_next_string">Next</string>
+
+    <string name="btn_home_string">Yes</string>
+    <string name="tv_to_home_string">Go home?</string>
+
     <string name="empty_screen_view">0</string>
 
 

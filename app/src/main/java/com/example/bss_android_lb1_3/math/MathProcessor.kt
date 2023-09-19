@@ -30,13 +30,25 @@ class MathProcessor {
                 a: Float, b: Float -> a * b
         },
         Operations.Divide to {
-                a: Float, b: Float -> a / b
+                a: Float, b: Float ->
+
+            if (b == 0f) {
+                throw ArithmeticException()
+            }
+
+            a / b
         },
     )
 
     private var unaryMathActions: Map<Operations, UnarMathOperation> = mapOf(
         Operations.Sqrt to {
-            a: Float -> sqrt(a.toDouble()).toFloat()
+            a: Float ->
+
+            if (a < 0f) {
+                throw ArithmeticException()
+            }
+
+            sqrt(a.toDouble()).toFloat()
         },
         Operations.Sqr to {
             a: Float -> a.pow(2)

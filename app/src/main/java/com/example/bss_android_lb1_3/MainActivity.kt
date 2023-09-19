@@ -1,11 +1,15 @@
 package com.example.bss_android_lb1_3
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bss_android_lb1_3.math.MathProcessor
 import com.example.bss_android_lb1_3.math.Operations
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,5 +62,27 @@ class MainActivity : AppCompatActivity() {
             emptyScreenView = getString(R.string.empty_screen_view)
         )
 
+
+        var bNext = findViewById<Button>(R.id.btnNextActivity)
+        screen.text = intent.getStringExtra("message")
+        bNext.setOnClickListener(this::onClick)
+
+        intent.putExtra("name", "name")
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    fun onClick(view: View) {
+        if (view.id === R.id.btnNextActivity) {
+            var screen = findViewById<TextView>(R.id.ettScreen)
+            val intent = Intent(this, SecondActivity::class.java)
+
+            intent.putExtra("screen_message", screen.text.toString())
+
+            startActivity(intent)
+        }
+    }
+
+    override fun onPointerCaptureChanged(hasCapture: Boolean) {
+//        super.onPointerCaptureChanged(hasCapture)
     }
 }
